@@ -9,6 +9,7 @@ const error500 = require('./error-handlers/500');
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 app.use('/headphone', hp_router);
 app.use('/user', user_router);

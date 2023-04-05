@@ -21,4 +21,7 @@ sequelize.sync().then( async() => {
         email: 'admin@me.com',
     });
 
+    console.log(newHeadphone);
+    console.log(newUser);
+
 }).catch(error => console.log(error));
