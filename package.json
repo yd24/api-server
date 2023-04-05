@@ -1,0 +1,35 @@
+{
+  "name": "api-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yd24/api-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yd24/api-server/issues"
+  },
+  "homepage": "https://github.com/yd24/api-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jest": "^29.5.0",
+    "pg": "^8.10.0",
+    "sequelize": "^6.30.0",
+    "sequelize-cli": "^6.6.0",
+    "sqlite3": "^5.1.6",
+    "supertest": "^6.3.3"
+  }
+}
