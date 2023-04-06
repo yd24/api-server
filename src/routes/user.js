@@ -15,8 +15,9 @@ async function getAllUsers(req, res, next) {
     res.status(200).json(data);
 }
 
-function getOneUser(req, res, next) {
-    
+async function getOneUser(req, res, next) {
+    let data = await User.findOne({where: {id: req.params.id}});
+    res.status(200).json(data);
 }
 
 function createUser(req, res, next) {

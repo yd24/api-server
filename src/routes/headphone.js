@@ -15,8 +15,9 @@ async function getAllHeadphones(req, res, next) {
     res.status(200).json(data);
 }
 
-function getOneHeadphone(req, res, next) {
-    res.send('Got here one');
+async function getOneHeadphone(req, res, next) {
+    let data = await Headphone.findOne({where: {id: req.params.id}});
+    res.status(200).json(data);
 }
 
 function createHeadphone(req, res, next) {

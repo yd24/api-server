@@ -14,7 +14,7 @@ sequelize.sync().then( async() => {
         wireless: false,
         weight: 300,
     });
-
+    
     let newUser = await User.create({
         username: 'admin',
         password: 'banana',
