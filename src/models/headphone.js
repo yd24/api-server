@@ -1,8 +1,8 @@
 'use strict';
 
-const { sequelize, DataTypes } = require('./index');
+const { DataTypes } = require('sequelize');
 
-const Headphone = sequelize.define('Headphone', {
+const Headphone = (sequelize) => sequelize.define('Headphone', {
     model: {
         type: DataTypes.STRING,
         allowNull: false,

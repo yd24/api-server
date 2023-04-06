@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const Headphone = require('../models/headphone');
+const { Headphone } = require('../models/');
 
 router.get('/', getAllHeadphones);
 router.get('/:id', getOneHeadphone);
