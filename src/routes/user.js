@@ -25,12 +25,14 @@ async function createUser(req, res, next) {
     res.status(200).json(data);
 }
 
-function updateUser(req, res, next) {
-    res.send('Updated one');
+async function updateUser(req, res, next) {
+    let data = await User.update(req.body, {where: {id: req.params.id}});
+    res.status(200).json(data);
 }
 
-function deleteUser(req, res, next) {
-    res.send('Deleted one');
+async function deleteUser(req, res, next) {
+    let data = await User.destroy({where: {id: req.params.id}});
+    res.status(200).send('User successfully deleted.');
 }
 
 module.exports = router;

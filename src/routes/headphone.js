@@ -25,12 +25,14 @@ async function createHeadphone(req, res, next) {
     res.status(200).json(data);
 }
 
-function updateHeadphone(req, res, next) {
-    res.send('Updated one');
+async function updateHeadphone(req, res, next) {
+    let data = await Headphone.update(req.body, {where: {id: req.params.id}});
+    res.status(200).json(data);
 }
 
-function deleteHeadphone(req, res, next) {
-    res.send('Deleted one');
+async function deleteHeadphone(req, res, next) {
+    let data = await Headphone.destroy({where: {id: req.params.id}});
+    res.status(200).send('Headphone successfully deleted.');
 }
 
 module.exports = router;
