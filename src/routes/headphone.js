@@ -20,8 +20,9 @@ async function getOneHeadphone(req, res, next) {
     res.status(200).json(data);
 }
 
-function createHeadphone(req, res, next) {
-    res.send('Made one');
+async function createHeadphone(req, res, next) {
+    let data = await Headphone.create(req.body);
+    res.status(200).json(data);
 }
 
 function updateHeadphone(req, res, next) {
