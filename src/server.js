@@ -11,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//Hook up the validator, even if it's basic validation
 app.use('/headphone', hp_router);
 app.use('/user', user_router);
 
