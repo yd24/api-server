@@ -3,11 +3,10 @@
 const supertest = require('supertest');
 const server = require('../src/server');
 const request = supertest(server.app);
-const { Headphone, User } = require('../src/models/');
+const { sequelize, Headphone, User } = require('../src/models/');
 
 beforeAll( async() => {
-    await Headphone.sync();
-    await User.sync();
+    await sequelize.sync();
     let hp_data1 = {
         model: 'Sundara',
         brand: 'Hifiman',
@@ -60,8 +59,7 @@ beforeAll( async() => {
 });
 
 afterAll( async() => {
-    await Headphone.drop();
-    await User.drop();
+    await sequelize.drop();
 });
 
 describe('Test that GET routes are working', () => {
