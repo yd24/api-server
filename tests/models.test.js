@@ -41,8 +41,8 @@ describe('Testing Headphone/User models', () => {
     });
 
     test('Can get User and their Headphone', async() => {
-        let user = await User.findOne({where: {id: newUser.id}, include: Headphone});
-        
+        let user = await User.read(newUser.id, {include: Headphone.model});
+        console.log(user);
         expect(user.Headphones[0].model).toEqual('Sundara');
     });
 });
