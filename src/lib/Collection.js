@@ -2,15 +2,17 @@
 
 class Collection {
     constructor(model) {
+        console.log(model);
         this.model = model;
     }
     
     async read (id, options) {
         try {
             if (id) {
-                return this.model.findOne({where: {id: id}, ...options});
+                return await this.model.findOne({where: {id: id}, ...options});
             } else {
-                return this.model.findAll(options);
+                console.log(options);
+                return await this.model.findAll(options);
             }
         } catch (e) {
             console.log('Collection class READ ERROR', e);
@@ -19,7 +21,7 @@ class Collection {
 
     async create (data) {
         try {
-            return this.model.create(data);
+            return await this.model.create(data);
         } catch (e) {
             console.log('Collection class READ ERROR', e);
         }
@@ -41,7 +43,7 @@ class Collection {
 
     async delete (id, data) {
         try {
-            let deleted = await this.model.delete({where: {id: id}});
+            let deleted = await this.model.destroy({where: {id: id}});
             return deleted;
         } catch (e) {
             console.log('Collection class READ ERROR', e);

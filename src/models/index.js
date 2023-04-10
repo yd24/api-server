@@ -2,10 +2,10 @@
 
 require('dotenv').config();
 
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize } = require('sequelize');
 const db_url = process.env.DB_URL || 'sqlite:memory:';
-const sequelize = new Sequelize(db_url);
 const Collection = require('../lib/Collection');
+const sequelize = new Sequelize(db_url);
 
 const createHeadphone = require('./headphone');
 const HeadphoneModel = createHeadphone(sequelize);
@@ -19,6 +19,6 @@ UserModel.belongsToMany(HeadphoneModel, {through: 'UserHeadphones'});
 
 module.exports = {
     sequelize, 
-    Headphone: HeadphoneModel,
-    User: UserModel,
+    Headphone: new Collection(HeadphoneModel),
+    User: new Collection(UserModel),
 };
